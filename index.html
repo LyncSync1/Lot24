@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-  body {
-    background-color: lightyellow !important;
-  }
-</style>
   <meta charset="UTF-8" />
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
@@ -18,7 +13,7 @@
 
     body {
       font-family: sans-serif;
-      background-color: #fff;
+      background-color: #fff8dc;
       color: #000;
     }
 
@@ -38,7 +33,6 @@
       position: sticky;
       top: 0;
       height: 100vh;
-      display: block;
     }
 
     .logo {
@@ -74,53 +68,55 @@
     }
 
     /* ✅ MOBILE FIXES */
-   @media screen and (max-width: 768px) {
-  .main-container {
-    flex-direction: column !important;
-  }
+    @media screen and (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
 
-  .left-panel {
-    width: 100% !important;
-    padding: 20px !important;
-  }
+      .left-panel {
+        width: 100%;
+        padding: 20px;
+      }
 
-  .right-panel {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-  }
+      .right-panel {
+        display: none !important;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+      }
 
-  .model-mobile {
-    display: block !important;
-    width: 100%;
-    height: 300px;
-    margin: 20px 0;
-  }
+      .model-mobile {
+        display: block;
+        width: 100%;
+        height: 300px;
+        margin: 20px 0;
+      }
 
-  .model-mobile model-viewer {
-    width: 100%;
-    height: 100%;
-  }
+      .model-mobile model-viewer {
+        width: 100%;
+        height: 100%;
+      }
 
-  .logo {
-    width: 120px;
-  }
+      .logo {
+        width: 120px;
+      }
 
-  h1 {
-    font-size: 1.8em;
-  }
-}
+      h1 {
+        font-size: 1.8em;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="main-container">
     <div class="left-panel">
-      <!-- Logo + Title -->
+      <!-- LOGO -->
       <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
+
+      <!-- TITLE -->
       <h1>Lot 24 – Portside, Padre Island</h1>
 
-      <!-- ✅ MOBILE MODEL -->
+      <!-- ✅ MOBILE MODEL: directly under the title -->
       <div class="model-mobile">
         <model-viewer
           src="HOUSE%20MODEL.glb"
@@ -134,7 +130,7 @@
         ></model-viewer>
       </div>
 
-      <!-- Text -->
+      <!-- TEXT -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
         <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
@@ -143,7 +139,7 @@
       </div>
     </div>
 
-    <!-- ✅ DESKTOP MODEL -->
+    <!-- DESKTOP MODEL -->
     <div class="right-panel">
       <div class="model-desktop">
         <model-viewer

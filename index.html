@@ -4,50 +4,76 @@
   <meta charset="UTF-8" />
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #000;
+  }
+
+  .left {
+    width: 50%;
+    padding: 40px;
+    overflow-y: auto;
+  }
+
+  .left h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  .left p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .right {
+    width: 50%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  model-viewer {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* --- Responsive for mobile devices --- */
+  @media (max-width: 768px) {
     body {
-      font-family: sans-serif;
-      display: flex;
-      min-height: 100vh;
-      background-color: #fff;
-      color: #000;
+      flex-direction: column;
     }
 
-    .left {
-      width: 50%;
-      padding: 40px;
-      overflow-y: auto;
-    }
-
-    .left h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    .left p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin-bottom: 30px;
+    .left, .right {
+      width: 100%;
+      height: auto;
     }
 
     .right {
-      width: 50%;
-      position: sticky;
-      top: 0;
-      height: 100vh;
+      position: relative;
+      height: 400px;
     }
 
     model-viewer {
-      width: 100%;
       height: 100%;
     }
-  </style>
+
+    .left {
+      padding: 20px;
+    }
+  }
+</style>
 </head>
 <body>
   <div class="left">

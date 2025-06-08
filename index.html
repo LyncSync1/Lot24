@@ -5,40 +5,78 @@
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
-    body {
+    * {
       margin: 0;
-      background-color: #fff;
-      color: #000;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    h1 {
-      margin: 20px 0 10px;
-      font-size: 2em;
-      text-align: center;
+    body {
+      font-family: sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .left {
+      width: 50%;
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .left h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .right {
+      width: 50%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
     }
 
     model-viewer {
       width: 100%;
-      max-width: 1000px;
-      height: 600px;
+      height: 100%;
     }
   </style>
 </head>
 <body>
-  <h1>Lot 24 – Portside, Padre Island</h1>
+  <div class="left">
+    <h1>Lot 24 – Portside, Padre Island</h1>
+    <p>
+      Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
+    </p>
+    <p>
+      Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model on the right to see the home's exterior in 3D.
+    </p>
+    <p>
+      Scroll down to learn more about nearby attractions, pricing, and availability.
+    </p>
+    <!-- Add more content to see scrolling effect -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
+    <p>More text here...</p>
+    <p>More text here...</p>
+    <p>More text here...</p>
+  </div>
 
-  <model-viewer
-    src="HOUSE%20MODEL.glb"
-    alt="3D House Model"
-    auto-rotate
-    camera-controls
-    shadow-intensity="1"
-    touch-action="pan-y"
-  >
-  </model-viewer>
+  <div class="right">
+    <model-viewer
+      src="HOUSE%20MODEL.glb"
+      alt="3D House Model"
+      auto-rotate
+      camera-controls
+      shadow-intensity="1"
+      touch-action="pan-y"
+    ></model-viewer>
+  </div>
 </body>
 </html>

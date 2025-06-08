@@ -86,6 +86,13 @@
   width: 120px;
   height: auto;
   z-index: 999;
+      @media (max-width: 768px) {
+  .logo {
+    width: 90px;
+    top: 10px;
+    left: 10px;
+  }
+}
 }
   </style>
 </head>
@@ -132,7 +139,7 @@
       camera-controls
       shadow-intensity="1"
       touch-action="pan-y"
-      camera-orbit="45deg 60deg 5m"
+      camera-orbit="20deg 60deg 100m"
     ></model-viewer>
   </div>
 </body>

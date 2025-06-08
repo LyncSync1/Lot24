@@ -17,40 +17,36 @@
       min-height: 100vh;
       background-color: #fff;
       color: #000;
-      flex-direction: row;
     }
 
     .left {
       width: 50%;
       padding: 40px;
       overflow-y: auto;
-      display: flex;
-      flex-direction: column;
     }
 
-    .title {
-      margin-bottom: 30px;
-    }
-
-    .title h1 {
+    h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
 
-    .title p {
+    p {
       font-size: 1.2em;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .content {
+    .model-desktop {
       display: block;
-    }
-
-    .right {
-      width: 50%;
       position: sticky;
       top: 0;
+      width: 50%;
       height: 100vh;
+    }
+
+    .model-mobile {
+      display: none;
+      margin: 20px 0;
     }
 
     model-viewer {
@@ -58,7 +54,7 @@
       height: 100%;
     }
 
-    /* --------- Mobile Layout --------- */
+    /* Mobile layout */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -69,22 +65,16 @@
         padding: 20px;
       }
 
-      .right {
-        position: relative;
-        width: 100%;
+      .model-desktop {
+        display: none;
+      }
+
+      .model-mobile {
+        display: block;
         height: 400px;
-        order: 2;
       }
 
-      .title {
-        order: 1;
-      }
-
-      .content {
-        order: 3;
-      }
-
-      model-viewer {
+      .model-mobile model-viewer {
         height: 100%;
       }
     }
@@ -92,12 +82,10 @@
 </head>
 <body>
   <div class="left">
-    <div class="title">
-      <h1>Lot 24 – Portside, Padre Island</h1>
-    </div>
+    <h1>Lot 24 – Portside, Padre Island</h1>
 
-    <!-- 3D Viewer appears below title on mobile -->
-    <div class="right">
+    <!-- Mobile viewer shows under title -->
+    <div class="model-mobile">
       <model-viewer
         src="HOUSE%20MODEL.glb"
         alt="3D House Model"
@@ -108,22 +96,31 @@
       ></model-viewer>
     </div>
 
-    <!-- Only scrollable text block -->
-    <div class="content">
-      <p>
-        Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
-      </p>
-      <p>
-        Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
-      </p>
-      <p>
-        Scroll down to learn more about nearby attractions, pricing, and availability.
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
-      <p>More text here...</p>
-      <p>More text here...</p>
-      <p>More text here...</p>
-    </div>
+    <p>
+      Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
+    </p>
+    <p>
+      Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
+    </p>
+    <p>
+      Scroll down to learn more about nearby attractions, pricing, and availability.
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
+    <p>More text here...</p>
+    <p>More text here...</p>
+    <p>More text here...</p>
+  </div>
+
+  <!-- Desktop viewer stays fixed on the right -->
+  <div class="model-desktop">
+    <model-viewer
+      src="HOUSE%20MODEL.glb"
+      alt="3D House Model"
+      auto-rotate
+      camera-controls
+      shadow-intensity="1"
+      touch-action="pan-y"
+    ></model-viewer>
   </div>
 </body>
 </html>

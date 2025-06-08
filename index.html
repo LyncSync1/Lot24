@@ -2,28 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>3D Model Viewer</title>
+  <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
       background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 2em;
+      text-align: center;
+    }
+
     model-viewer {
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
       height: 600px;
     }
   </style>
 </head>
 <body>
+  <h1>Lot 24 – Portside, Padre Island</h1>
+
   <model-viewer
-    src="HOUSE MODEL.glb"
-    alt="3D Model"
+    src="HOUSE%20MODEL.glb"
+    alt="3D House Model"
     auto-rotate
     camera-controls
     shadow-intensity="1"

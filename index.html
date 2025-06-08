@@ -6,108 +6,100 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
     * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: sans-serif;
-  display: flex;
-  min-height: 100vh;
-  background-color: #fff;
-  color: #000;
-}
+    body {
+      font-family: sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #fff;
+      color: #000;
+    }
 
-.left {
-  width: 50%;
-  padding: 40px;
-  overflow-y: auto;
-}
+    .left {
+      width: 50%;
+      padding: 40px;
+      overflow-y: auto;
+    }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
 
-p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-.logo-title-block {
-  margin-bottom: 30px;
-  text-align: left;
-}
+    .logo-title-block {
+      margin-bottom: 30px;
+      text-align: left;
+    }
 
-.logo-stacked {
-  width: 160px;
-  height: auto;
-  margin-bottom: 10px;
-}
+    .logo-stacked {
+      width: 160px;
+      height: auto;
+      margin-bottom: 10px;
+    }
 
-.model-desktop {
-  display: block;
-  position: sticky;
-  top: 0;
-  width: 50%;
-  height: 100vh;
-}
+    .model-desktop {
+      display: block;
+      position: sticky;
+      top: 0;
+      width: 50%;
+      height: 100vh;
+    }
 
-.model-mobile {
-  display: none;
-  margin: 20px 0;
-}
+    .model-mobile {
+      display: none;
+      margin: 20px 0;
+    }
 
-model-viewer {
-  width: 100%;
-  height: 100%;
-}
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
 
-/* ✅ Mobile layout */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
 
-  .left {
-    width: 100%;
-    padding: 20px;
-  }
+      .left {
+        width: 100%;
+        padding: 20px;
+      }
 
-  .model-desktop {
-    display: none;
-  }
+      .model-desktop {
+        display: none;
+      }
 
-  .model-mobile {
-    display: block;
-    height: 400px;
-  }
+      .model-mobile {
+        display: block;
+        height: 400px;
+      }
 
-  .model-mobile model-viewer {
-    height: 100%;
-  }
+      .model-mobile model-viewer {
+        height: 100%;
+      }
 
-  .logo-inline {
-    width: 90px;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
+      .logo-stacked {
+        width: 120px;
+      }
+    }
   </style>
 </head>
 <body>
-<div class="logo-title-block">
-  <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-stacked">
-  <h1>Lot 24 – Portside, Padre Island</h1>
-</div>
-
-<div class="left">
+  <div class="left">
+    <div class="logo-title-block">
+      <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-stacked">
+      <h1>Lot 24 – Portside, Padre Island</h1>
+    </div>
 
     <!-- Mobile viewer shows under title -->
     <div class="model-mobile">
@@ -115,9 +107,11 @@ model-viewer {
         src="HOUSE%20MODEL.glb"
         alt="3D House Model"
         auto-rotate
+        auto-rotate-delay="0"
         camera-controls
         shadow-intensity="1"
         touch-action="pan-y"
+        camera-orbit="20deg 75deg 100m"
       ></model-viewer>
     </div>
 

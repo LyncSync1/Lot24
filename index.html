@@ -13,37 +13,23 @@
 
     body {
       font-family: sans-serif;
-      margin: 0;
       background-color: #fff;
       color: #000;
     }
 
     .main {
       display: flex;
-      flex-direction: row;
-      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .left {
-      width: 50%;
-      padding: 40px;
-      overflow-y: auto;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .logo-title-block {
-      margin-bottom: 30px;
+    .header-block {
+      width: 100%;
       text-align: left;
+      margin-bottom: 30px;
     }
 
     .logo-stacked {
@@ -52,94 +38,56 @@
       margin-bottom: 10px;
     }
 
-    .model-desktop {
-      width: 50%;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      display: block;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
-    .model-mobile {
-      display: none;
+    .model-viewer-container {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 30px;
     }
 
     model-viewer {
       width: 100%;
       height: 100%;
       display: block;
-      margin: 0 auto;
-      max-width: 100%;
+    }
+
+    .text-content {
+      width: 100%;
+    }
+
+    .text-content p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-      }
-
-      .left {
-        width: 100%;
-        padding: 20px;
-      }
-
-      .model-desktop {
-        display: none;
-      }
-
-      .model-mobile {
-        display: block;
-        height: 400px;
-        width: 100%;
-        padding: 0 20px;
-        box-sizing: border-box;
-        margin-bottom: 40px;
-      }
-
-      .model-mobile model-viewer {
-        width: 100%;
-        height: 100%;
-        display: block;
-        margin: 0 auto;
-      }
-
       .logo-stacked {
         width: 120px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .model-viewer-container {
+        height: 320px;
       }
     }
   </style>
 </head>
 <body>
   <div class="main">
-    <div class="left">
-      <div class="logo-title-block">
-        <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-stacked">
-        <h1>Lot 24 – Portside, Padre Island</h1>
-      </div>
-
-      <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
-      <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
-      <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
-      <p>More text here...</p>
-      <p>More text here...</p>
-
-      <!-- Mobile model goes here to appear after text -->
-      <div class="model-mobile">
-        <model-viewer
-          src="HOUSE%20MODEL.glb"
-          alt="3D House Model"
-          auto-rotate
-          auto-rotate-delay="0"
-          camera-controls
-          shadow-intensity="5"
-          touch-action="pan-y"
-          camera-orbit="20deg 75deg 100m"
-        ></model-viewer>
-      </div>
+    <div class="header-block">
+      <img src="Portside_Logo_Blue2t.png" alt="Portside Logo" class="logo-stacked">
+      <h1>Lot 24 – Portside, Padre Island</h1>
     </div>
 
-    <!-- Desktop viewer stays fixed on the right -->
-    <div class="model-desktop">
+    <div class="model-viewer-container">
       <model-viewer
         src="HOUSE%20MODEL.glb"
         alt="3D House Model"
@@ -150,6 +98,23 @@
         touch-action="pan-y"
         camera-orbit="20deg 75deg 100m"
       ></model-viewer>
+    </div>
+
+    <div class="text-content">
+      <p>
+        Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
+      </p>
+      <p>
+        Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
+      </p>
+      <p>
+        Scroll down to learn more about nearby attractions, pricing, and availability.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...
+      </p>
+      <p>More text here...</p>
+      <p>More text here...</p>
     </div>
   </div>
 </body>

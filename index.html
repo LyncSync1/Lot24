@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
@@ -33,7 +34,6 @@
       position: sticky;
       top: 0;
       height: 100vh;
-      display: block;
     }
 
     .logo {
@@ -52,51 +52,26 @@
       margin-bottom: 20px;
     }
 
-    .model-desktop {
-      width: 100%;
-      height: 100%;
-    }
-
+    .model-desktop,
     .model-mobile {
       display: none;
-      width: 100%;
-      height: 400px;
-      margin: 20px 0;
     }
 
-    .model-mobile model-viewer,
-    .model-desktop model-viewer {
+    .model-desktop model-viewer,
+    .model-mobile model-viewer {
       width: 100%;
       height: 100%;
       display: block;
     }
 
-    /* ✅ MOBILE OVERRIDES */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
+    .model-mobile {
+      height: 320px;
+      margin: 20px 0;
+    }
 
-      .left {
-        width: 100%;
-        padding: 20px;
-      }
-
-      .right {
-        display: none !important;
-      }
-
-      .logo {
-        width: 120px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      .model-mobile {
+    @media (min-width: 769px) {
+      .model-desktop {
         display: block;
-        height: 320px;
       }
     }
   </style>
@@ -104,12 +79,11 @@
 <body>
   <div class="container">
     <div class="left">
-      <!-- Logo + Title -->
       <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
       <h1>Lot 24 – Portside, Padre Island</h1>
 
-      <!-- ✅ Mobile Model -->
-      <div class="model-mobile">
+      <!-- Mobile model -->
+      <div class="model-mobile" id="mobileModel">
         <model-viewer
           src="HOUSE%20MODEL.glb"
           alt="3D House Model"
@@ -122,32 +96,42 @@
         ></model-viewer>
       </div>
 
-      <!-- Text -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
         <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
         <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
-        <p>More text here...</p>
-        <p>More text here...</p>
       </div>
     </div>
 
-    <!-- ✅ Desktop-only Sticky Model -->
-    <div class="right">
-      <div class="model-desktop">
-        <model-viewer
-          src="HOUSE%20MODEL.glb"
-          alt="3D House Model"
-          auto-rotate
-          auto-rotate-delay="0"
-          camera-controls
-          shadow-intensity="5"
-          touch-action="pan-y"
-          camera-orbit="20deg 75deg 100m"
-        ></model-viewer>
-      </div>
+    <!-- Desktop model -->
+    <div class="right model-desktop" id="desktopModel">
+      <model-viewer
+        src="HOUSE%20MODEL.glb"
+        alt="3D House Model"
+        auto-rotate
+        auto-rotate-delay="0"
+        camera-controls
+        shadow-intensity="5"
+        touch-action="pan-y"
+        camera-orbit="20deg 75deg 100m"
+      ></model-viewer>
     </div>
   </div>
+
+  <!-- 🔧 JS Fix for iOS viewport misreporting -->
+  <script>
+    const isMobile = window.innerWidth < 768;
+    const mobileModel = document.getElementById("mobileModel");
+    const desktopModel = document.getElementById("desktopModel");
+
+    if (isMobile) {
+      mobileModel.style.display = "block";
+      desktopModel.style.display = "none";
+    } else {
+      mobileModel.style.display = "none";
+      desktopModel.style.display = "block";
+    }
+  </script>
 </body>
 </html>

@@ -19,17 +19,35 @@
 
     .main {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      max-width: 900px;
-      margin: 0 auto;
+      min-height: 100vh;
     }
 
-    .header-block {
+    .left {
+      width: 50%;
+      padding: 40px;
+    }
+
+    .right {
+      width: 50%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .model-desktop {
       width: 100%;
-      text-align: left;
-      margin-bottom: 30px;
+      height: 100%;
+      display: block;
+    }
+
+    .model-mobile {
+      display: none;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .logo-stacked {
@@ -43,22 +61,6 @@
       margin-bottom: 20px;
     }
 
-    .model-viewer-container {
-      width: 100%;
-      height: 400px;
-      margin-bottom: 30px;
-    }
-
-    model-viewer {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .text-content {
-      width: 100%;
-    }
-
     .text-content p {
       font-size: 1.2em;
       line-height: 1.6;
@@ -66,6 +68,30 @@
     }
 
     @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .left {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .right {
+        display: none;
+      }
+
+      .model-mobile {
+        display: block;
+        height: 320px;
+        margin-bottom: 20px;
+      }
+
+      .model-mobile model-viewer {
+        width: 100%;
+        height: 100%;
+      }
+
       .logo-stacked {
         width: 120px;
       }
@@ -73,48 +99,59 @@
       h1 {
         font-size: 1.8em;
       }
-
-      .model-viewer-container {
-        height: 320px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="main">
-    <div class="header-block">
+    <div class="left">
       <img src="Portside_Logo_Blue2t.png" alt="Portside Logo" class="logo-stacked">
       <h1>Lot 24 – Portside, Padre Island</h1>
+
+      <!-- Mobile model viewer -->
+      <div class="model-mobile">
+        <model-viewer
+          src="HOUSE%20MODEL.glb"
+          alt="3D House Model"
+          auto-rotate
+          auto-rotate-delay="0"
+          camera-controls
+          shadow-intensity="5"
+          touch-action="pan-y"
+          camera-orbit="20deg 75deg 100m"
+        ></model-viewer>
+      </div>
+
+      <div class="text-content">
+        <p>
+          Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
+        </p>
+        <p>
+          Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
+        </p>
+        <p>
+          Scroll down to learn more about nearby attractions, pricing, and availability.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
+        <p>More text here...</p>
+        <p>More text here...</p>
+      </div>
     </div>
 
-    <div class="model-viewer-container">
-      <model-viewer
-        src="HOUSE%20MODEL.glb"
-        alt="3D House Model"
-        auto-rotate
-        auto-rotate-delay="0"
-        camera-controls
-        shadow-intensity="5"
-        touch-action="pan-y"
-        camera-orbit="20deg 75deg 100m"
-      ></model-viewer>
-    </div>
-
-    <div class="text-content">
-      <p>
-        Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
-      </p>
-      <p>
-        Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
-      </p>
-      <p>
-        Scroll down to learn more about nearby attractions, pricing, and availability.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...
-      </p>
-      <p>More text here...</p>
-      <p>More text here...</p>
+    <!-- Desktop model viewer -->
+    <div class="right">
+      <div class="model-desktop">
+        <model-viewer
+          src="HOUSE%20MODEL.glb"
+          alt="3D House Model"
+          auto-rotate
+          auto-rotate-delay="0"
+          camera-controls
+          shadow-intensity="5"
+          touch-action="pan-y"
+          camera-orbit="20deg 75deg 100m"
+        ></model-viewer>
+      </div>
     </div>
   </div>
 </body>

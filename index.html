@@ -13,10 +13,15 @@
 
     body {
       font-family: sans-serif;
-      display: flex;
-      min-height: 100vh;
+      margin: 0;
       background-color: #fff;
       color: #000;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
     }
 
     .left {
@@ -48,34 +53,27 @@
     }
 
     .model-desktop {
-      display: block;
-      position: sticky;
-      top: 0;
       width: 50%;
       height: 100vh;
+      position: sticky;
+      top: 0;
+      display: block;
     }
 
     .model-mobile {
-  display: none;
-  margin: 20px 0;
-  width: 100%;
-  text-align: center; /* centers inline-block or block content */
-}
+      display: none;
+    }
 
-.model-mobile model-viewer {
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  display: block; /* makes sure it stretches full width */
-  margin: 0 auto;  /* horizontal centering */
-}
-model-viewer {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-}
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
     @media (max-width: 768px) {
-      body {
+      .main {
         flex-direction: column;
       }
 
@@ -89,19 +87,20 @@ model-viewer {
       }
 
       .model-mobile {
-    display: block;
-    height: 400px;
-    width: 100%;
-    text-align: center;
-  }
+        display: block;
+        height: 400px;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin-bottom: 40px;
+      }
 
-  .model-mobile model-viewer {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0 auto;
-  }
+      .model-mobile model-viewer {
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+      }
 
       .logo-stacked {
         width: 120px;
@@ -110,53 +109,48 @@ model-viewer {
   </style>
 </head>
 <body>
-  <div class="left">
-    <div class="logo-title-block">
-      <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-stacked">
-      <h1>Lot 24 – Portside, Padre Island</h1>
+  <div class="main">
+    <div class="left">
+      <div class="logo-title-block">
+        <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-stacked">
+        <h1>Lot 24 – Portside, Padre Island</h1>
+      </div>
+
+      <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
+      <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
+      <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
+      <p>More text here...</p>
+      <p>More text here...</p>
+
+      <!-- Mobile model goes here to appear after text -->
+      <div class="model-mobile">
+        <model-viewer
+          src="HOUSE%20MODEL.glb"
+          alt="3D House Model"
+          auto-rotate
+          auto-rotate-delay="0"
+          camera-controls
+          shadow-intensity="5"
+          touch-action="pan-y"
+          camera-orbit="20deg 75deg 100m"
+        ></model-viewer>
+      </div>
     </div>
 
-    <!-- Mobile viewer shows under title -->
-    <div class="model-mobile">
+    <!-- Desktop viewer stays fixed on the right -->
+    <div class="model-desktop">
       <model-viewer
         src="HOUSE%20MODEL.glb"
         alt="3D House Model"
         auto-rotate
         auto-rotate-delay="0"
         camera-controls
-        shadow-intensity="1"
+        shadow-intensity="5"
         touch-action="pan-y"
         camera-orbit="20deg 75deg 100m"
       ></model-viewer>
     </div>
-
-    <p>
-      Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.
-    </p>
-    <p>
-      Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.
-    </p>
-    <p>
-      Scroll down to learn more about nearby attractions, pricing, and availability.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
-    <p>More text here...</p>
-    <p>More text here...</p>
-    <p>More text here...</p>
-  </div>
-
-  <!-- Desktop viewer stays fixed on the right -->
-  <div class="model-desktop">
-    <model-viewer
-      src="HOUSE%20MODEL.glb"
-      alt="3D House Model"
-      auto-rotate
-      auto-rotate-delay="0"
-      camera-controls
-      shadow-intensity="5"
-      touch-action="pan-y"
-      camera-orbit="20deg 75deg 100m"
-    ></model-viewer>
   </div>
 </body>
 </html>

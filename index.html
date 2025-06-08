@@ -93,14 +93,39 @@
     left: 10px;
   }
 }
+      .header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.logo-inline {
+  width: 120px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo-inline {
+    width: 90px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
 }
   </style>
 </head>
 <body>
-  <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
-  
-  <div class="left">
-    <h1>Lot 24 – Portside, Padre Island</h1>
+ <div class="header">
+  <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo-inline">
+  <h1>Lot 24 – Portside, Padre Island</h1>
+</div>
+
+<div class="left">
 
     <!-- Mobile viewer shows under title -->
     <div class="model-mobile">
@@ -137,9 +162,9 @@
       auto-rotate
       auto-rotate-delay="0"
       camera-controls
-      shadow-intensity="1"
+      shadow-intensity="5"
       touch-action="pan-y"
-      camera-orbit="20deg 120deg 100m"
+      camera-orbit="20deg 75deg 100m"
     ></model-viewer>
   </div>
 </body>

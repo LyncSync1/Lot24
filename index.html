@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+  body {
+    background-color: lightyellow !important;
+  }
+</style>
   <meta charset="UTF-8" />
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
@@ -69,25 +74,25 @@
     }
 
     /* ✅ MOBILE FIXES */
-    @media screen and (max-width: 768px) {
+   @media screen and (max-width: 768px) {
   .main-container {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .left-panel {
-    width: 100%;
-    padding: 20px;
+    width: 100% !important;
+    padding: 20px !important;
   }
 
   .right-panel {
-    display: none !important;  /* 👈 this line forces it to be hidden */
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
   .model-mobile {
-    display: block;
+    display: block !important;
     width: 100%;
     height: 300px;
     margin: 20px 0;

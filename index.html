@@ -130,13 +130,66 @@
       .right {
         display: none !important;
       }
+      .features {
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 20px;
+}
     }
 
     @media (min-width: 769px) {
       .model-desktop {
         display: block;
       }
+      .features {
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 20px;
+}
     }
+    .features {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9em;
+  color: #1d1d1f;
+}
+
+.feature::before {
+  content: attr(data-icon);
+}
+
+.feature span {
+  margin-top: 8px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.feature {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.feature span {
+  font-size: 0.75em;
+  margin-top: 5px;
+}
   </style>
 </head>
 <body>
@@ -165,7 +218,22 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
       </div>
     </div>
-
+    
+<div class="features">
+  <div class="feature">
+    🛁
+    <span>3.5 Baths</span>
+  </div>
+  <div class="feature">
+    🛏️
+    <span>3 Bedrooms</span>
+  </div>
+  <div class="feature">
+    📐
+    <span>1,400 sqft</span>
+  </div>
+</div>
+    
     <div class="right model-desktop" id="desktopModel">
       <model-viewer
         src="HOUSE MODEL.glb"

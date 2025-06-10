@@ -6,14 +6,13 @@
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
-    /* === Global Resets === */
+    /* General Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* === Body Styles === */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #f5f5f7;
@@ -21,13 +20,12 @@
       line-height: 1.6;
     }
 
-    /* === Links === */
     a {
       color: #0071e3;
       text-decoration: none;
     }
 
-    /* === Layout Containers === */
+    /* Main Layout Container */
     .container {
       display: flex;
       flex-direction: row;
@@ -36,11 +34,13 @@
       padding: 60px 20px;
     }
 
+    /* Left Content (Text and Mobile Model) */
     .left {
       width: 50%;
       padding-right: 40px;
     }
 
+    /* Right Content (Desktop Model) */
     .right {
       width: 50%;
       position: sticky;
@@ -48,7 +48,7 @@
       height: 80vh;
     }
 
-    /* === Header Elements === */
+    /* Logo */
     .logo {
       width: 140px;
       margin-bottom: 10px;
@@ -60,51 +60,29 @@
       margin-bottom: 20px;
     }
 
-    /* === Text Content === */
     .text-content p {
       font-size: 1.1em;
       margin-bottom: 20px;
     }
 
-    /* === Model Viewer Visibility === */
+    /* Model Viewer Shared Styles */
     .model-desktop,
     .model-mobile {
       display: none;
     }
 
-    /* === Model Viewer Base === */
     model-viewer {
       width: 100%;
       height: 100%;
       display: block;
     }
 
-    /* === Mobile Model Viewer Styling === */
     .model-mobile {
       height: 300px;
       margin: 20px 0;
     }
 
-    /* === Map Section === */
-    .map-wrapper {
-      background-color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .map-wrapper h2 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
-
-    iframe {
-      border: 0;
-      border-radius: 12px;
-      width: 100%;
-      height: 450px;
-    }
-
-    /* === Feature Icons === */
+    /* Feature Icons Section */
     .features {
       display: flex;
       gap: 20px;
@@ -128,17 +106,31 @@
       color: #1d1d1f;
     }
 
-    .feature::before {
-      content: attr(data-icon);
-    }
-
     .feature span {
       font-size: 0.75em;
       margin-top: 5px;
-      font-weight: 500;
     }
 
-    /* === Mobile Styles === */
+    /* Google Map Wrapper */
+    .map-wrapper {
+      background-color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .map-wrapper h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      border: 0;
+      border-radius: 12px;
+      width: 100%;
+      height: 450px;
+    }
+
+    /* Mobile Specific Styles */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -177,7 +169,7 @@
       }
     }
 
-    /* === Desktop Styles === */
+    /* Desktop Specific Styles */
     @media (min-width: 769px) {
       .model-desktop {
         display: block;
@@ -188,7 +180,6 @@
 <body>
   <div class="container">
     <div class="left">
-      <!-- Logo & Title -->
       <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
       <h1>Lot 24 – Portside, Padre Island</h1>
 
@@ -206,7 +197,7 @@
         ></model-viewer>
       </div>
 
-      <!-- Description Paragraphs -->
+      <!-- Description Text -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
         <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
@@ -214,6 +205,53 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
       </div>
 
-      <!-- Feature Icons Section -->
+      <!-- Feature Icons -->
       <div class="features">
-        <div class="feature" data-icon="
+        <div class="feature">🛁<span>3.5 Baths</span></div>
+        <div class="feature">🛏️<span>3 Bedrooms</span></div>
+        <div class="feature">📐<span>1,400 sqft</span></div>
+      </div>
+    </div>
+
+    <!-- Desktop Model Viewer -->
+    <div class="right model-desktop" id="desktopModel">
+      <model-viewer
+        src="HOUSE MODEL.glb"
+        alt="3D House Model"
+        auto-rotate
+        auto-rotate-delay="0"
+        camera-controls
+        shadow-intensity="5"
+        touch-action="pan-y"
+        camera-orbit="20deg 75deg 100m"
+      ></model-viewer>
+    </div>
+  </div>
+
+  <!-- Google Map Section -->
+  <div class="map-wrapper">
+    <h2>Location</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d883.8774574613599!2d-97.21007207621574!3d27.608722540098437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668fbbab4bf51ef%3A0xae921ad9a22570a!2s14917%20Granada%20Dr%2C%20Corpus%20Christi%2C%20TX%2078418%2C%20USA!5e0!3m2!1sen!2smx!4v1749423276439!5m2!1sen!2smx"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- JavaScript to toggle model based on device width -->
+  <script>
+    const isMobile = window.innerWidth < 768;
+    const mobileModel = document.getElementById("mobileModel");
+    const desktopModel = document.getElementById("desktopModel");
+
+    if (isMobile) {
+      mobileModel.style.display = "block";
+      desktopModel.style.display = "none";
+    } else {
+      mobileModel.style.display = "none";
+      desktopModel.style.display = "block";
+    }
+  </script>
+</body>
+</html>

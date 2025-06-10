@@ -6,7 +6,7 @@
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
-    /* General Reset and Base Styles */
+    /* Reset & Base */
     * {
       margin: 0;
       padding: 0;
@@ -25,32 +25,28 @@
       text-decoration: none;
     }
 
-    /* Main Layout Container */
+    /* Container & Layout */
     .container {
       display: flex;
       flex-direction: row;
+      align-items: flex-start;           /* keep both columns aligned at top */
       max-width: 1200px;
       margin: 0 auto;
       padding: 60px 20px;
+      gap: 40px;
     }
 
-    /* Left Content (Text and Mobile Model) */
     .left {
-      width: 50%;
-      padding-right: 40px;
+      flex: 1;
     }
 
-    /* Right Content (Desktop Model) */
-/* replace your .right rule with something like… */
-.right {
-  width: 50%;
-  position: relative;
-  /* pick a fixed or viewport‐based height */
-  height: 600px;  
-  margin-top: 40px;
-}
+    .right {
+      flex: 1;
+      /* desktop viewer will fill this height */
+      height: 600px;
+    }
 
-    /* Logo */
+    /* Logo & Headings */
     .logo {
       width: 140px;
       margin-bottom: 10px;
@@ -67,120 +63,94 @@
       margin-bottom: 20px;
     }
 
-    /* Model Viewer Shared Styles */
-    .model-desktop,
-    .model-mobile {
-      display: none;
+    /* Model-Viewer Defaults */
+    model-viewer {
+      width: 100%;
+      display: block;
     }
 
-    model-viewer {
-  width: 100%;
-  /* remove height:100% and instead: */
-  height: 600px;
-  display: block;
-}
-
+    /* Mobile viewer */
     .model-mobile {
+      display: block;
+    }
+    .model-mobile model-viewer {
       height: 300px;
       margin: 20px 0;
     }
 
-    /* Feature Icons Section */
-    /* ICON STYLING */
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
+    /* Desktop viewer hidden by default */
+    .model-desktop {
+      display: none;
+    }
 
-.feature {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
+    /* Feature Icons */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+    .feature {
+      background: #fff;
+      padding: 20px;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .feature .icon { font-size: 1.6em; margin-bottom: 6px; }
+    .feature .label { font-size: .75em; line-height: 1.2; }
 
-.feature .icon {
-  font-size: 1.6em;
-  margin-bottom: 6px;
-}
-
-.feature .label {
-  font-size: 0.75em;
-  line-height: 1.2;
-}
-    /* Google Map Wrapper */
+    /* Map Section */
     .map-wrapper {
-      background-color: #fff;
+      background: #fff;
       padding: 60px 20px;
       text-align: center;
     }
-
-    .map-wrapper h2 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
-
+    .map-wrapper h2 { font-size: 1.5em; margin-bottom: 20px; }
     iframe {
-      border: 0;
-      border-radius: 12px;
       width: 100%;
       height: 450px;
+      border: 0;
+      border-radius: 12px;
     }
 
-    /* Mobile Specific Styles */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 20px;
-      }
-
-      .left {
-        width: 100%;
-        padding-right: 0;
-        text-align: center;
-      }
-
-      .text-content {
-        text-align: center;
-      }
-
-      .logo {
-        width: 100px;
-        margin: 0 auto 10px;
-      }
-
-      h1 {
-        font-size: 2em;
-        margin-bottom: 15px;
-      }
-
-      .model-mobile {
-        display: block;
-        height: 300px;
-        margin: 0px 0 20px;
-      }
-
-      .right {
-        display: none !important;
-      }
-    }
-
-    /* Desktop Specific Styles */
+    /* Switch to desktop layout + viewer */
     @media (min-width: 769px) {
+      /* hide mobile model, show desktop */
+      .model-mobile {
+        display: none;
+      }
       .model-desktop {
         display: block;
       }
+      /* desktop viewer fills its container */
+      .model-desktop model-viewer {
+        height: 100%;
+      }
+    }
+
+    /* Stack on narrow screens */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+      .left {
+        width: 100%;
+      }
+      .right {
+        display: none;
+      }
+      .logo { width: 100px; margin: 0 auto 10px; }
+      h1 { font-size: 2em; margin-bottom: 15px; text-align: center; }
+      .text-content { text-align: center; }
     }
   </style>
 </head>
@@ -190,8 +160,8 @@
       <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
       <h1>Lot 24 – Portside, Padre Island</h1>
 
-      <!-- Mobile Model Viewer -->
-      <div class="model-mobile" id="mobileModel">
+      <!-- Mobile Model -->
+      <div class="model-mobile">
         <model-viewer
           src="HOUSE MODEL.glb"
           alt="3D House Model"
@@ -200,37 +170,35 @@
           camera-controls
           shadow-intensity="5"
           touch-action="pan-y"
-          camera-orbit="20deg 75deg 100m"
-        ></model-viewer>
+          camera-orbit="20deg 75deg 100m">
+        </model-viewer>
       </div>
 
-     
-      <!-- Description Text -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
         <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
         <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam…</p>
       </div>
 
-        <!-- Feature Icons -->
-<div class="features">
-  <div class="feature">
-    <div class="icon">🛁</div>
-    <div class="label">3.5 Baths</div>
-  </div>
-  <div class="feature">
-    <div class="icon">🛏️</div>
-    <div class="label">3 Bedrooms</div>
-  </div>
-  <div class="feature">
-    <div class="icon">📐</div>
-    <div class="label">1,400 sqft</div>
-  </div>
-</div>
-      
-    <!-- Desktop Model Viewer -->
-    <div class="right model-desktop" id="desktopModel">
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🛁</div>
+          <div class="label">3.5 Baths</div>
+        </div>
+        <div class="feature">
+          <div class="icon">🛏️</div>
+          <div class="label">3 Bedrooms</div>
+        </div>
+        <div class="feature">
+          <div class="icon">📐</div>
+          <div class="label">1,400 sqft</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Model -->
+    <div class="right model-desktop">
       <model-viewer
         src="HOUSE MODEL.glb"
         alt="3D House Model"
@@ -239,12 +207,11 @@
         camera-controls
         shadow-intensity="5"
         touch-action="pan-y"
-        camera-orbit="20deg 75deg 100m"
-      ></model-viewer>
+        camera-orbit="20deg 75deg 100m">
+      </model-viewer>
     </div>
   </div>
 
-  <!-- Google Map Section -->
   <div class="map-wrapper">
     <h2>Location</h2>
     <iframe
@@ -254,20 +221,5 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
-
-  <!-- JavaScript to toggle model based on device width -->
-  <script>
-    const isMobile = window.innerWidth < 768;
-    const mobileModel = document.getElementById("mobileModel");
-    const desktopModel = document.getElementById("desktopModel");
-
-    if (isMobile) {
-      mobileModel.style.display = "block";
-      desktopModel.style.display = "none";
-    } else {
-      mobileModel.style.display = "none";
-      desktopModel.style.display = "block";
-    }
-  </script>
 </body>
 </html>

@@ -6,7 +6,6 @@
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
-    /* 🌐 GLOBAL STYLES */
     * {
       margin: 0;
       padding: 0;
@@ -14,67 +13,59 @@
     }
 
     body {
-      font-family: sans-serif;
-      background-color: #fff;
-      color: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #0071e3;
+      text-decoration: none;
     }
 
     .container {
       display: flex;
       flex-direction: row;
-      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
     }
 
     .left {
       width: 50%;
-      padding: 40px;
+      padding-right: 40px;
     }
 
     .right {
       width: 50%;
       position: sticky;
-      top: 0;
-      height: 100vh;
+      top: 60px;
+      height: 80vh;
     }
 
     .logo {
-      width: 160px;
-      margin-bottom: 10px;
+      width: 140px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+      font-size: 2.8em;
+      font-weight: 600;
+      margin-bottom: 30px;
     }
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-    .map-wrapper {
-  width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-}
 
-.map-wrapper h2 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  text-align: center;
-}
     .text-content p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 1.1em;
       margin-bottom: 20px;
     }
 
-    /* Hide both model types by default */
     .model-desktop,
     .model-mobile {
       display: none;
     }
 
-    .model-desktop model-viewer,
-    .model-mobile model-viewer {
+    model-viewer {
       width: 100%;
       height: 100%;
       display: block;
@@ -82,47 +73,56 @@ h2 {
 
     .model-mobile {
       height: 320px;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
-    /* 📱 MOBILE STYLES */
+    .map-wrapper {
+      background-color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .map-wrapper h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      border: 0;
+      border-radius: 12px;
+      width: 100%;
+      height: 450px;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         align-items: center;
+        padding: 40px 20px;
       }
 
       .left {
         width: 100%;
-        padding: 20px;
+        padding-right: 0;
         text-align: center;
       }
 
       .text-content {
-        width: 100%;
         text-align: center;
       }
 
       .logo {
-        width: 120px;
-        margin: 0 auto 10px;
+        width: 100px;
+        margin: 0 auto 20px;
       }
 
       h1 {
-        font-size: 1.8em;
-        text-align: center;
+        font-size: 2em;
+        margin-bottom: 20px;
       }
 
       .model-mobile {
         display: block;
-        width: 100%;
-        height: 320px;
-        margin: 20px 0;
-      }
-
-      .model-mobile model-viewer {
-        width: 100%;
-        height: 100%;
       }
 
       .right {
@@ -130,7 +130,6 @@ h2 {
       }
     }
 
-    /* 🖥️ DESKTOP STYLES */
     @media (min-width: 769px) {
       .model-desktop {
         display: block;
@@ -141,14 +140,12 @@ h2 {
 <body>
   <div class="container">
     <div class="left">
-      <!-- 🖼️ Logo + Title -->
       <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
       <h1>Lot 24 – Portside, Padre Island</h1>
 
-      <!-- 🏠 Mobile Model (shown only on small screens) -->
       <div class="model-mobile" id="mobileModel">
         <model-viewer
-          src="HOUSE%20MODEL.glb"
+          src="HOUSE_MODEL.glb"
           alt="3D House Model"
           auto-rotate
           auto-rotate-delay="0"
@@ -159,7 +156,6 @@ h2 {
         ></model-viewer>
       </div>
 
-      <!-- 📄 Text Content -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
         <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
@@ -168,10 +164,9 @@ h2 {
       </div>
     </div>
 
-    <!-- 🖥️ Desktop Model (shown on large screens) -->
     <div class="right model-desktop" id="desktopModel">
       <model-viewer
-        src="HOUSE%20MODEL.glb"
+        src="HOUSE_MODEL.glb"
         alt="3D House Model"
         auto-rotate
         auto-rotate-delay="0"
@@ -183,7 +178,16 @@ h2 {
     </div>
   </div>
 
-  <!-- 🧠 JavaScript fallback for iOS/Safari width reporting issues -->
+  <div class="map-wrapper">
+    <h2>Location</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d883.8774574613599!2d-97.21007207621574!3d27.608722540098437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668fbbab4bf51ef%3A0xae921ad9a22570a!2s14917%20Granada%20Dr%2C%20Corpus%20Christi%2C%20TX%2078418%2C%20USA!5e0!3m2!1sen!2smx!4v1749423276439!5m2!1sen!2smx"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
   <script>
     const isMobile = window.innerWidth < 768;
     const mobileModel = document.getElementById("mobileModel");
@@ -197,18 +201,5 @@ h2 {
       desktopModel.style.display = "block";
     }
   </script>
-  <!-- 🗺️ Google Maps - Full Width Section -->
-<div class="map-wrapper">
-  <h2>Location</h2>
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d883.8774574613599!2d-97.21007207621574!3d27.608722540098437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668fbbab4bf51ef%3A0xae921ad9a22570a!2s14917%20Granada%20Dr%2C%20Corpus%20Christi%2C%20TX%2078418%2C%20USA!5e0!3m2!1sen!2smx!4v1749423276439!5m2!1sen!2smx"
-    width="100%"
-    height="450"
-    style="border:0; border-radius: 8px;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
 </body>
 </html>

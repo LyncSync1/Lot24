@@ -6,6 +6,7 @@
   <title>Lot 24 – Portside, Padre Island</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
+    /* -------------------- Global Reset & Base Styles -------------------- */
     * {
       margin: 0;
       padding: 0;
@@ -24,6 +25,7 @@
       text-decoration: none;
     }
 
+    /* -------------------- Layout Container -------------------- */
     .container {
       display: flex;
       flex-direction: row;
@@ -44,6 +46,7 @@
       height: 80vh;
     }
 
+    /* -------------------- Logo & Headline -------------------- */
     .logo {
       width: 140px;
       margin-bottom: 10px;
@@ -55,11 +58,13 @@
       margin-bottom: 20px;
     }
 
+    /* -------------------- Text Content -------------------- */
     .text-content p {
       font-size: 1.1em;
       margin-bottom: 20px;
     }
 
+    /* -------------------- Model Viewer Display -------------------- */
     .model-desktop,
     .model-mobile {
       display: none;
@@ -76,6 +81,37 @@
       margin: 20px 0;
     }
 
+    /* -------------------- Features (Icons) -------------------- */
+    .features {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9em;
+      color: #1d1d1f;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature span {
+      font-size: 0.75em;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    /* -------------------- Map Wrapper -------------------- */
     .map-wrapper {
       background-color: #fff;
       padding: 60px 20px;
@@ -94,6 +130,7 @@
       height: 450px;
     }
 
+    /* -------------------- Responsive Styles (Mobile) -------------------- */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -130,146 +167,25 @@
       .right {
         display: none !important;
       }
+
       .features {
-  flex-direction: row;
-  gap: 15px;
-  margin-top: 20px;
-}
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 20px;
+      }
     }
 
+    /* -------------------- Responsive Styles (Desktop+) -------------------- */
     @media (min-width: 769px) {
       .model-desktop {
         display: block;
       }
+
       .features {
-  flex-direction: row;
-  gap: 15px;
-  margin-top: 20px;
-}
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 20px;
+      }
     }
-    .features {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.9em;
-  color: #1d1d1f;
-}
-
-.feature::before {
-  content: attr(data-icon);
-}
-
-.feature span {
-  margin-top: 8px;
-  font-size: 1em;
-  font-weight: 500;
-}
-
-.feature {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.feature span {
-  font-size: 0.75em;
-  margin-top: 5px;
-}
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="left">
-      <img src="Portside_Logo_Blue2t.png" alt="Logo" class="logo">
-      <h1>Lot 24 – Portside, Padre Island</h1>
-
-      <div class="model-mobile" id="mobileModel">
-        <model-viewer
-          src="HOUSE MODEL.glb"
-          alt="3D House Model"
-          auto-rotate
-          auto-rotate-delay="0"
-          camera-controls
-          shadow-intensity="5"
-          touch-action="pan-y"
-          camera-orbit="20deg 75deg 100m"
-        ></model-viewer>
-      </div>
-
-      <div class="text-content">
-        <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
-        <p>Features include high ceilings, open-concept living spaces, and breathtaking views. Explore the model to see the home's exterior in 3D.</p>
-        <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
-      </div>
-    </div>
-    
-<div class="features">
-  <div class="feature">
-    🛁
-    <span>3.5 Baths</span>
-  </div>
-  <div class="feature">
-    🛏️
-    <span>3 Bedrooms</span>
-  </div>
-  <div class="feature">
-    📐
-    <span>1,400 sqft</span>
-  </div>
-</div>
-    
-    <div class="right model-desktop" id="desktopModel">
-      <model-viewer
-        src="HOUSE MODEL.glb"
-        alt="3D House Model"
-        auto-rotate
-        auto-rotate-delay="0"
-        camera-controls
-        shadow-intensity="5"
-        touch-action="pan-y"
-        camera-orbit="20deg 75deg 100m"
-      ></model-viewer>
-    </div>
-  </div>
-
-  <div class="map-wrapper">
-    <h2>Location</h2>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d883.8774574613599!2d-97.21007207621574!3d27.608722540098437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668fbbab4bf51ef%3A0xae921ad9a22570a!2s14917%20Granada%20Dr%2C%20Corpus%20Christi%2C%20TX%2078418%2C%20USA!5e0!3m2!1sen!2smx!4v1749423276439!5m2!1sen!2smx"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
-  <script>
-    const isMobile = window.innerWidth < 768;
-    const mobileModel = document.getElementById("mobileModel");
-    const desktopModel = document.getElementById("desktopModel");
-
-    if (isMobile) {
-      mobileModel.style.display = "block";
-      desktopModel.style.display = "none";
-    } else {
-      mobileModel.style.display = "none";
-      desktopModel.style.display = "block";
-    }
-  </script>
-</body>
-</html>

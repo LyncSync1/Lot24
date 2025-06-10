@@ -83,34 +83,31 @@
     }
 
     /* Feature Icons Section */
-    .features {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin: 30px 0;
-      flex-wrap: wrap;
-    }
+    /* ICON STYLING */
+.feature {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: 0.9em;
+}
 
-    .feature {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      font-size: 0.9em;
-      color: #1d1d1f;
-    }
+.feature .icon {
+  font-size: 1.5em;
+  margin-bottom: 6px;
+}
 
-    .feature span {
-      font-size: 0.75em;
-      margin-top: 5px;
-    }
-
+.feature .label {
+  font-size: 0.75em;
+  text-align: center;
+  line-height: 1.2;
+}
     /* Google Map Wrapper */
     .map-wrapper {
       background-color: #fff;
@@ -197,6 +194,21 @@
         ></model-viewer>
       </div>
 
+       <!-- Feature Icons -->
+      <div class="features">
+  <div class="feature">
+    <div class="icon">🛁</div>
+    <div class="label">3.5 Baths</div>
+  </div>
+  <div class="feature">
+    <div class="icon">🛏️</div>
+    <div class="label">3 Bedrooms</div>
+  </div>
+  <div class="feature">
+    <div class="icon">📐</div>
+    <div class="label">1,400 sqft</div>
+  </div>
+</div>
       <!-- Description Text -->
       <div class="text-content">
         <p>Experience luxury beachfront living with this modern 10-guest property, located in front of Whitecap Beach. Ideal for short-term rentals or year-round relaxation.</p>
@@ -204,14 +216,6 @@
         <p>Scroll down to learn more about nearby attractions, pricing, and availability.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam...</p>
       </div>
-
-      <!-- Feature Icons -->
-      <div class="features">
-        <div class="feature">🛁<span>3.5 Baths</span></div>
-        <div class="feature">🛏️<span>3 Bedrooms</span></div>
-        <div class="feature">📐<span>1,400 sqft</span></div>
-      </div>
-    </div>
 
     <!-- Desktop Model Viewer -->
     <div class="right model-desktop" id="desktopModel">

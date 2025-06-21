@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lot 24 @ The Portside</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  const map = L.map('map').setView([27.609005, -97.210015], 15);
+
+// Coastal theme: watercolor
+L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg', {
+  attribution: 'Map tiles by Stamen Design, under CC BY 3.0 — Data © OpenStreetMap',
+  maxZoom: 16
+}).addTo(map);
+const bouncingIcon = L.divIcon({
+  html: `<div class="bounce-icon">🏖️</div>`,
+  className: '', // prevent Leaflet's default styling
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+});
+  
+const beachIcon = L.divIcon({
+  html: `
+    <div style="
+      font-size: 30px;
+      line-height: 1;
+      text-align: center;
+    ">🏖️</div>
+  `,
+  className: '',
+  iconSize: [30, 30],
+  iconAnchor: [24, 30],
+  popupAnchor: [0, -40]
+});
+
+ const FishingIcon = L.divIcon({
+  html: `
+    <div style="
+      font-size: 30px;
+      line-height: 1;
+      text-align: center;
+    ">🎣</div>
+  `,
+  className: '',
+  iconSize: [30, 30],
+  iconAnchor: [24, 30],
+  popupAnchor: [0, -40]
+});
+
+ const GroceryIcon = L.divIcon({
+  html: `
+    <div style="
+      font-size: 30px;
+      line-height: 1;
+      text-align: center;
+    ">🛒</div>
+  `,
+  className: '',
+  iconSize: [30, 30],
+  iconAnchor: [24, 30],
+  popupAnchor: [0, -40]
+});
+
+const PizzaIcon = L.divIcon({
+  html: `
+    <div style="
+      font-size: 30px;
+      line-height: 1;
+      text-align: center;
+    ">🍕</div>
+  `,
+  className: '',
+  iconSize: [30, 30],
+  iconAnchor: [24, 30],
+  popupAnchor: [0, -40]
+});
+
+const GasIcon = L.divIcon({
+  html: `
+    <div style="
+      font-size: 30px;
+      line-height: 1;
+      text-align: center;
+    ">⛽️</div>
+  `,
+  className: '',
+  iconSize: [30, 30],
+  iconAnchor: [24, 30],
+  popupAnchor: [0, -40]
+});
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  L.marker([27.608889, -97.210314])
+    .addTo(map)
+    .bindPopup('Lot 24');
+    
+
+L.marker([27.605747, -97.206956], { icon: beachIcon })
+  .addTo(map)
+  .bindPopup('<strong>Beach Access</strong><br>Public entrance to Whitecap Beach');
+
+L.marker([27.609490, -97.204713], { icon: beachIcon })
+  .addTo(map)
+  .bindPopup('<strong>Beach Access</strong><br>Public entrance to Whitecap Beach');
+
+L.marker([27.598194, -97.211087], { icon: beachIcon })
+  .addTo(map)
+  .bindPopup('<strong>Beach Access</strong><br>Public entrance to Whitecap Beach');
+
+L.marker([27.613111, -97.195025], { icon: FishingIcon })
+  .addTo(map)
+  .bindPopup('<strong>Off-Shore Gulf Fishing </strong><br>Gulf of Mexico Access');
+
+L.marker([27.609301, -97.216338], { icon: FishingIcon })
+  .addTo(map)
+  .bindPopup('<strong>Lake Padre Bay Fishing </strong><br>Bay Fishing');
+
+L.marker([27.596410, -97.223287], { icon: GroceryIcon })
+  .addTo(map)
+  .bindPopup('<strong>Island Market Grocery </strong><br>Grocery Store');
+
+L.marker([27.600810, -97.223397], { icon: PizzaIcon })
+  .addTo(map)
+  .bindPopup('<strong>Domino Pizzas </strong><br>Free Delivery');
+
+L.marker([27.600810, -97.221197], { icon: GasIcon })
+  .addTo(map)
+  .bindPopup('<strong>Valero Gas Station </strong><br>Stock up on some snacks too');
+
+L.polygon([
+  [27.609408, -97.2105015],
+  [27.609170, -97.209895],
+  [27.608246, -97.210343],
+[27.607340, -97.210824],
+[27.607454, -97.211139],
+[27.608011, -97.210883],
+[27.607991, -97.210605],
+[27.608330, -97.210450],
+  [27.608650, -97.210895]
+], {
+  color: 'blue',
+  fillColor: '#3f51b5',
+  fillOpacity: 0.4
+}).addTo(map).bindPopup("The Portside")
+.openPopup();
+
+
+</script>
+
+</body>
+</html>
